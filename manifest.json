@@ -1,0 +1,39 @@
+{
+    "manifest_version": 3,
+    "name": "LinkedIn Text Formatter",
+    "version": "1.0",
+    "description": "Format text on LinkedIn using keyboard shortcuts",
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "commands"
+    ],
+    "host_permissions": [
+        "*://*.linkedin.com/*"
+    ],
+    "commands": {
+        "format-bold": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+B",
+                "mac": "Command+Shift+B"
+            },
+            "description": "Convert text to bold using Unicode characters"
+        }
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.linkedin.com/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "icons": {
+        "128": "icon.png"
+    }
+}
